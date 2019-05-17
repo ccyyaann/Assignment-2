@@ -1,0 +1,69 @@
+#include <iostream>
+#include <cstdlib>
+#include <time.h>
+using namespace std;
+int main()
+{
+    int guess = 5;
+    int number;
+    char answer;
+    int wins = 0;
+    int loss = 0;
+    int i;
+
+    srand (time(NULL));
+    int correct = rand() %20 + 1;
+
+    cout << "Guess a number between 1 to 20.  You have 5 tries.\n";
+
+    for (i = 0; i < guess; i++)
+    {
+        cout << "Guess " << i+1 << ": ";
+        cin >> number;
+        cout << number;
+
+        if (number != correct)
+        {
+        cout << "WRONG :( Try again!\n";
+        loss++;
+        cout << ¨The number was:¨ << correct << endl;
+        }
+        if(i > 5)
+        {
+        cout << "You are out of guesses.\n";
+        return 0;
+        }
+            while (number == correct)
+            {
+            wins++;
+            cout << "NICE :) Play again? (y/n) \n";
+            cin >> answer;
+
+                    if (answer == 'y')
+                    {
+                    i = -1;
+                    srand(time(NULL));
+                    correct = rand() %20 + 1;
+                    }
+                    if (answer == 'n')
+                    {
+                    cout << "Your results are: \n";
+                    wins = wins + 0;
+                    cout << "You won " << wins << " times!\n";
+                    loss = loss + 0;
+                    cout << "You lost " << loss << " times.\n";
+                    cout << "Thanks for playing!\n";
+                    return 0;
+                    }
+            }
+
+    }
+            cout << endl;
+            cout << "Your results are:\n";
+            wins = wins + 0;
+            cout << "You have won " << wins << " times!\n";
+            loss = loss + 0;
+            cout << "You have lost " << loss << " times.\n";
+            
+            return 0;
+}
