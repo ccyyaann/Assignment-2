@@ -1,0 +1,39 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    int counter = 0;
+
+    while (true) {
+
+    if (counter == 0) {
+    cout << counter << " = red" << endl;
+    counter++;
+    }
+    else if (counter == 1) {
+    cout << counter << " = yellow" << endl;
+    counter++;
+    }
+    else if (counter == 2) {
+    cout << counter << " = green" << endl;
+    counter++;
+    }
+    else if (counter == 3) {
+    cout << counter << " = aqua" << endl;
+    counter++;
+    }
+    else if (counter == 4) {
+    cout << counter << " = blue" << endl;
+    counter++;
+    }
+    else if (counter == 5) {
+    cout << counter << " = purple" << endl;
+    counter = 0;
+    
+    }
+}
+    cout << "Press CTRL-C to Stop" << endl;
+    return 0;
+}
