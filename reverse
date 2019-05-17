@@ -1,0 +1,21 @@
+#include <iostream>
+#include <cstdlib>
+#include <time.h>
+
+using namespace std;
+
+int main()
+{
+    long long int number, reverse = 0, rightDigit;
+    cout << "Enter a number: \n";
+    cin >> number;
+    cout << number << endl;
+
+    while (number != 0)
+    {
+        rightDigit = number % 10;
+        reverse = (reverse * 10) + rightDigit;
+        number = number / 10;
+    }
+    cout << "Reversed number: " << reverse << endl;
+}
