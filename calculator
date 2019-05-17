@@ -1,0 +1,170 @@
+#include <iostream>
+#include <cmath>
+#include <iomanip>
+
+using namespace std;
+
+char GotoMenu()
+   {
+   const string Menu =  "Enter + to add two numbers\n"
+                        "Enter - to substract two numbers\n"
+                        "Enter / to divide two numbers\n"
+                        "Enter * to multiply two numbers\n"
+                        "Enter ^ for the exponent x^y where x and y are the two numbers\n"
+      
+                        "Press q to quit\n"
+                        "\n";
+                        cout << Menu;
+   char symbol;
+                        cout << "Enter the function symbol you wish to use:  \n";
+                        cin >> symbol;
+   return symbol;
+   }
+
+   unsigned long int factorial(unsigned int n)
+   {
+    unsigned int ret = 1;
+    for(unsigned int i = 1; i <= n; i++)
+        {
+        ret *= i;
+        }
+    return ret;
+   }
+
+   float add_two_numbers(float a, float b)
+   {
+       float local_answer = 0;
+       local_answer = a + b;
+       return local_answer;
+   }
+   float sub_two_numbers(float a, float b)
+   {
+        float local_answer = 0;
+        local_answer = a - b;
+        return local_answer;
+   }
+   float div_two_numbers(float a, float b)
+   {
+        float local_answer = 0;
+        local_answer = a / b;
+        return local_answer;
+   }
+   float mult_two_numbers(float a, float b)
+   {
+        float local_answer = 0;
+        local_answer = a * b;
+        return local_answer;
+   }
+   float exp_two_numbers(float a, float b, float solution)
+   {
+        float local_answer = 1;
+        local_answer = solution * a;
+        return local_answer;
+   }
+   float exp2_two_numbers(float a, float b, float solution)
+   {
+        float local_answer = 1;
+        local_answer = 1 / solution;
+        return local_answer;
+   }
+
+double apply(char symbol, double a, double b)
+    {
+    double solution;
+    if (symbol == '+')
+        {
+        solution = add_two_numbers(a, b);
+        cout << endl;
+        return solution;
+        }
+    else if (symbol == '-')
+        {
+        solution = sub_two_numbers(a, b);
+        cout << endl;
+        return solution;
+        }
+    else if (symbol == '/')
+    {
+        solution = div_two_numbers(a, b);
+        cout << endl;
+        return solution;
+    }
+    else if (symbol == '*')
+        {
+        solution = mult_two_numbers(a, b);
+        cout << endl;
+        return solution;
+        }
+    else if (symbol == '^')
+            {
+                solution = 1;
+                for (int i = fabs(b); i > 0; i--)
+                    {
+                    solution = exp_two_numbers(a, b, solution);
+                    }
+                    if (b < 0)
+                    {
+                    solution = exp2_two_numbers(a, b, solution);
+                    }
+                    cout << endl;
+                    return solution;
+            }
+          
+    }
+
+
+int main()
+{
+    double a;
+    double b;
+    double solution;
+    char symbol = GotoMenu();
+
+    bool do_math = true;
+
+    while (symbol != 'q')
+    {
+        if (symbol == '+' || symbol == '-' || symbol == '/' || symbol == '*' || symbol == '^')
+        {
+        cout << "Now enter your two operands" << endl;
+        cin >> a;
+        cin >> b;
+        do_math = true;
+        }
+        else if (symbol == '!')
+        {
+        cout << "Enter your value to find your exponent" << endl;
+        cin >> a;
+        do_math = true;
+        }
+        else
+        {
+        cout << "You have entered a wrong math symbol..\n";
+        cout << "Try to input the correct symbol from above..\n";
+        cout << endl;
+        do_math = false;
+        }
+        if (do_math)
+        {
+        solution = apply(symbol, a, b);
+            if (symbol == '/' && b == 0)
+            {
+            cout << a << " / " << b << " = " << "Error! You can't divide by Zero" << endl;
+            cout << endl;
+            }
+            if (symbol == '!' && b <= 0)
+            {
+            cout << "It can't be negative" << endl;
+            cout << endl;
+            }
+            else
+            {
+            cout << "Your answer is: " << solution << endl;
+            
+            }
+        }
+        symbol = GotoMenu();
+
+    }
+    return 0;
+}
