@@ -14,7 +14,7 @@ int main()
     srand (time(NULL));
     int correct = rand() %20 + 1;
 
-    cout << "Guess a number between 1 to 20.  You have 5 tries.\n";
+    cout << "Guess a number between 1 to 20." << endl << "You have 5 tries." << endl;
 
     for (i = 0; i < guess; i++)
     {
@@ -24,19 +24,19 @@ int main()
 
         if (number != correct)
         {
-        cout << "WRONG :( Try again!\n";
+        cout << endl << " WRONG! Try again!" << endl;
         loss++;
-        cout << ¨The number was:¨ << correct << endl;
+        cout << "The number was:" << correct << endl;
         }
         if(i > 5)
         {
-        cout << "You are out of guesses.\n";
+        cout << "You are out of guesses.";
         return 0;
         }
             while (number == correct)
             {
             wins++;
-            cout << "NICE :) Play again? (y/n) \n";
+            cout << endl << " NICE :) Play again? (y/n)" << endl;
             cin >> answer;
 
                     if (answer == 'y')
@@ -47,23 +47,23 @@ int main()
                     }
                     if (answer == 'n')
                     {
-                    cout << "Your results are: \n";
+                    cout << "Your results are: " << endl;
                     wins = wins + 0;
-                    cout << "You won " << wins << " times!\n";
+                    cout << "You won " << wins << " times!" << endl;
                     loss = loss + 0;
-                    cout << "You lost " << loss << " times.\n";
-                    cout << "Thanks for playing!\n";
+                    cout << "You lost " << loss << " times." <<endl;
+                    cout << "Thanks for playing!"  <<endl;
                     return 0;
                     }
             }
 
     }
             cout << endl;
-            cout << "Your results are:\n";
+            cout << "Your results are: " << endl;
             wins = wins + 0;
-            cout << "You have won " << wins << " times!\n";
+            cout << endl << "You have won " << wins << " times!" <<endl;
             loss = loss + 0;
-            cout << "You have lost " << loss << " times.\n";
+            cout << "You have lost " << loss << " times." <<endl;
             
             return 0;
 }
